@@ -1,0 +1,11 @@
+{
+    "questions": [
+        {
+            "type": "multiplechoice",
+            "question": "Do you have pets",
+            "choicesText": ["Yes", "No"],
+            "choiceImage": ["pet_selected.png", "no_pet_selected.png"],
+            "choices": [1, 0]
+        }
+    ]
+}
