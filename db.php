@@ -1,11 +1,19 @@
 <?php
+    ini_set('display_errors', 'On');
+    error_reporting(E_ALL);
 
-    function initDB() {
+    function dbConnect($forceClear)
+    {
         $dbFilename = 'usher.db';
-        if (file_exists($dbFilename)) {
+        if($forceClear && file_exists($dbFilename)) {
             unlink($dbFilename);
         }
         $db = new SQLite3($dbFilename);
+        return $db;
+    }
+
+    function initDB() {
+        $db = dbConnect(true);
         $db->exec('CREATE TABLE people (
             person_id VARCHAR(30) NOT NULL PRIMARY KEY,
             first_name VARCHAR(255) NOT NULL,
@@ -40,7 +48,31 @@
             why_want_to_volunteer TEXT,
             FOREIGN KEY (person_id) REFERENCES people(person_id)
         )');
+
+        $ok = $db->exec("INSERT INTO people (person_id, first_name, last_name) VALUES ('hi','first','last');");
     }
 
-    initDB();
+    function getDB()
+    {
+        $db = dbConnect(false);
+        $result = $db->query('SELECT * from people');
+        $stringResult = "";
+        while ($row = $result->fetchArray())
+        {
+            echo '['.$row['person_id'].','.$row['first_name'].','.$row['last_name'].']';
+        }
+    }
+
+    if($_GET['action'] != NULL && $_GET['action'] == 'init')
+    {
+        initDB();
+    }
+    elseif($_GET['action'] && $_GET['action'] == 'view')
+    {
+        getDB();
+    }
+    else
+    {
+        echo "Please add a GET request for your action";
+    }
 ?>
