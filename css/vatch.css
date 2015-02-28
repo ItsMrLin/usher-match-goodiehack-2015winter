@@ -1,1 +1,53 @@
-vatch.css
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+div.bg-div {
+    position: fixed;
+    display: block;
+    height: 100vh;
+    width: 100vw;
+    background-repeat:no-repeat;
+    background-size: 100% 100%;
+    background-image: url("../img/splash.png");
+    background-size: cover;
+}
+
+.splash-container {
+    padding: 80px 100px;
+}
+
+.splash-logo {
+    max-height: 100px;
+}
+
+.splash-heading {
+    margin-top: 30px;
+}
+
+.splash-heading h1{
+    color: #f3c41f;
+    font-size: 4em;
+    font-weight: 900;
+}
+
+.button-row {
+    margin-top: 50px;
+}
+
+.splash-page-button {
+    color: white;
+    width: 300px;
+    border: 1px solid white;
+    margin: 0 auto;
+    display: inline-block;
+    padding: 5px 40px;
+    font-size: 1.5em;
+    font-weight: bold;
+
+    transition: all 0.1s ease-in-out;
+}
+
+.splash-page-button:hover {
+    background-color: rgba(200, 200, 200, 0.7);
+}
