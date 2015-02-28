@@ -58,3 +58,42 @@ div.bg-div {
 .splash-page-button:active {
     background-color: rgba(200, 200, 200, 1);
 }
+
+/*-----------question page------------*/
+.question-bg-div {
+    min-height: 100vh;
+    background-color: #3BA9CB;
+}
+
+.question-progress-bar-div {
+    position: fixed;
+    top: 30px;
+    left: 50px;
+    height: 80vh;
+    width: 1px;
+    background-color: #F1C40F;
+}
+
+.small-star-span {
+    position: absolute;
+    margin-top: 0px;
+    margin-left: -21px;
+    top: 0%;
+
+    transition: all 1s ease-in-out;
+}
+
+.small-star-span img {
+    height: 40px;
+}
+
+.big-star-span {
+    position: absolute;
+    left: -53px;
+    margin-bottom: -61px;
+    bottom: 0;
+}
+
+.big-star-span img {
+    height: 100px;
+}

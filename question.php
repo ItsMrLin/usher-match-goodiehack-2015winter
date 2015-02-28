@@ -8,7 +8,8 @@
 
     // read cv.json file
     $jsonString = file_get_contents("data/question.json");
-    $jsonData = json_decode($jsonString, true);
+    // $jsonData = json_decode($jsonString, true);
+    $jsonData = json_decode("{}", true);
 
     // render cv
     $smarty->assign('questionData', $jsonData);
