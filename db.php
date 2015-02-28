@@ -17,28 +17,30 @@
             state VARCHAR(255),
             zip_code VARCHAR(30),
             gender VARCHAR(1),
-            dob, VARCHAR(255),
+            dob VARCHAR(255),
+            is_interested_in_internship VARCHAR(1),
             language TEXT
         )');
 
         $db->exec('CREATE TABLE students (
             person_id VARCHAR(30) NOT NULL PRIMARY KEY,
-            FOREIGN KEY (person_id) REFERENCES people(person_id),
             grade INT,
-            interests TEXT
+            interests TEXT,
+            FOREIGN KEY (person_id) REFERENCES people(person_id)
         )');
 
         $db->exec('CREATE TABLE mentors (
             person_id VARCHAR(30) NOT NULL PRIMARY KEY,
-            FOREIGN KEY (person_id) REFERENCES people(person_id),
             employer VARCHAR(255),
             job_title VARCHAR(255),
             industry TEXT,
             volunteer_area TEXT,
             expertise TEXT,
-            why_want_to_volunteer TEXT
+            when_available TEXT,
+            why_want_to_volunteer TEXT,
+            FOREIGN KEY (person_id) REFERENCES people(person_id)
         )');
     }
-    
+
     initDB();
 ?>
