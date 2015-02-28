@@ -54,3 +54,7 @@ div.bg-div {
 .splash-page-button:hover {
     background-color: rgba(200, 200, 200, 0.7);
 }
+
+.splash-page-button:active {
+    background-color: rgba(200, 200, 200, 1);
+}
