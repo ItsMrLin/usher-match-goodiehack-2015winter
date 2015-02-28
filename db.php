@@ -68,8 +68,16 @@
         $stringResult = "";
         while ($row = $result->fetchArray())
         {
-            echo '['.$row['person_id'].','.$row['first_name'].','.$row['last_name'].']';
+            echo '['.$row['person_id'].','.$row['first_name'].','.$row['last_name'].']<br>';
         }
+    }
+
+    function dbInsert($userType, $answers)
+    {
+        $db = dbConnect(false);
+        echo 'hi'; var_dump($answers); echo 'hi';
+        $ok = $db->exec("INSERT INTO people (person_id, first_name, last_name) VALUES ('".$answers[0]->{'person_id'}."','".$answers[0]->{'first_name'}."','".$answers[0]->{'last_name'}."');");
+        echo $ok;
     }
 
     if($_GET['action'] != NULL && $_GET['action'] == 'init')
@@ -79,6 +87,11 @@
     elseif($_GET['action'] && $_GET['action'] == 'view')
     {
         getDB();
+    }
+    elseif($_GET['action'] && $_GET['action'] == 'insert')
+    {
+        $json = json_decode($_POST['value']);
+        dbInsert($json->{'userType'}, $json->{'answers'});
     }
     else
     {
